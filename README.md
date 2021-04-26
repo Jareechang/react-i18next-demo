@@ -8,7 +8,7 @@ Demo of the `react-i18next` library with using react wit hssr.
 
 1. [Motivation](#motivation)
 2. [Getting Started](#getting-started)
-3. [task](#task)
+3. [Task](#task)
 4. [Technologies](#technologies)
 
 
@@ -36,6 +36,8 @@ yarn start
 yarn server:watch
 ```
 
+visit http://localhost:3001
+
 #### Tasks
 
 List of things to explore and experiment with.
@@ -44,6 +46,7 @@ List of things to explore and experiment with.
 - [ ] Edge distrubtion (AWS cloudfront and s3) 
 - [ ] SSR with react & react-i18next 
 - [ ] i18n file extraction with tooling [link](https://react.i18next.com/guides/extracting-translations)
+- [ ] Integrating npm package of external package with i18n
 
 ### Technologies
 
