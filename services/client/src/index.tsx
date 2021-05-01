@@ -1,20 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import { useSSR } from 'react-i18next';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import history from './history';
 
+import './i18n';
 import './liveReload'
-
 import './index.css';
 
-ReactDOM.render(
-    <React.StrictMode>
+const Base = () => {
+    // @ts-ignore
+    console.log(window.initialI18nStore);
+    // @ts-ignore
+    useSSR(window.initialI18nStore, window.initialLanguage);
+    return (
         <React.Suspense fallback="loading...">
-            <Router>
+            <Router history={history}>
                 <App />
             </Router>
         </React.Suspense>
+    );
+}
+
+ReactDOM.hydrate(
+    <React.StrictMode>
+        <Base />
     </React.StrictMode>,
     document.getElementById('root')
 );

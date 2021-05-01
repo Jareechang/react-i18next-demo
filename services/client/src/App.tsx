@@ -17,8 +17,7 @@ import { useTranslation } from 'react-i18next'
 
 import Home from './pages/Home'
 import News from './pages/News'
-
-import './i18n';
+import history from './history';
 
 export interface HomeProps {}
 
@@ -31,6 +30,10 @@ const App : React.FC<HomeProps> = () => {
     ) => {
         const newLang : string = e.target.value as string
         setLang(newLang)
+        history.push({
+            pathname: '/',
+            search: `?lng=${newLang}`
+        })
         i18n.changeLanguage(newLang)
     }
 

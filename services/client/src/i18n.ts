@@ -1,31 +1,30 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 
-i18n
-    // learn more: https://github.com/i18next/i18next-xhr-backend
-    .use(Backend)
-    // connect with React
-    .use(initReactI18next)
-    // for all options read: https://www.i18next.com/overview/configuration-options
-    .init({
-        debug: true,
+const options = {
+    debug: true,
+    fallbackLng: 'en',
+    whitelist: ['en', 'es'],
 
-        lng: 'en',
-        fallbackLng: 'en',
-        whitelist: ['en', 'es'],
+    interpolation: {
+        escapeValue: false,
+    }
+};
 
-        interpolation: {
-            escapeValue: false,
-        },
+const isServer = typeof window === 'undefined';
 
-        backend: {
-            loadPath: '/assets/locales/{{lng}}/{{ns}}.json',
-        },
-        react: {
-            useSuspense: false,
-        },
-    });
+if (!isServer) {
+    i18n
+        .use(Backend)
+        .use(initReactI18next)
+        .use(LanguageDetector);
+}
+
+if (!i18n.isInitialized) {
+    i18n.init(options);
+}
 
 export default i18n;

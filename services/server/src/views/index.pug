@@ -4,6 +4,10 @@ html
     noscript
       p You need to enable javascript
     div(id="root") !{markup}
+  script.
+        window.initialLanguage = "!{initialLanguage}";
+        window.initialI18nStore = !{JSON.stringify(initialI18nStore)};
   script(src=`/assets/static/js/bundle.js`)
   script(src=`/assets/static/js/0.chunk.js`)
   script(src=`/assets/static/js/main.chunk.js`)
+
