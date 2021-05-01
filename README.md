@@ -44,7 +44,7 @@ List of things to explore and experiment with.
 
 - [ ] Independent release and sync with translation files (publish and versioning)
 - [ ] Edge distrubtion (AWS cloudfront and s3) 
-- [ ] SSR with react & react-i18next 
+- [x] SSR with react & react-i18next 
 - [ ] i18n file extraction with tooling [link](https://react.i18next.com/guides/extracting-translations)
 - [ ] Integrating npm package with i18n using `react-i18next`
     - i.e. some UI with i18n (how to handle extraction and loading locally and in production)
