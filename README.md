@@ -87,12 +87,12 @@ List of things to explore and experiment with.
 
 There is a weird caveat with `react-i18next` if you initialize this across packages it uses different versions.
 
-Therefore, if you try to load it in your main app then try to use it in your component library, the Translations won't exists as they are referencing two different versions and instances.
+Therefore, if you try to load it in your main app then try to use it in your component library, the translations won't exists as they are referencing two different versions and instances.
 
-**My work around is to create a `@common/i18n` does the following:**
+**My work around is to create a `@common/i18n` that does the following:**
 
 - Create the `i18n` instance and export it
-- Export the `react-i18next` imports
+- Export the `react-i18next` lib imports
 
 Re-using this across the packages in the mono-repo ensures we only reference and use one version of the `i18n` and `react-i18n`.
 
