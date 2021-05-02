@@ -13,11 +13,14 @@ import {
     Route,
     Switch
 } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+//import { useTranslation } from 'react-i18next'
+import { useTranslation } from '@common/i18n';
 
 import Home from './pages/Home'
 import News from './pages/News'
 import history from './history';
+
+import { Header } from '@common/header';
 
 export interface HomeProps {}
 
@@ -38,7 +41,8 @@ const App : React.FC<HomeProps> = () => {
     }
 
     return (
-        <Box mx={4}>
+        <Box mx={4} my={12}>
+            <Header i18n={i18n} />
             <Box my={2}>
                 <List>
                     <ListItem>

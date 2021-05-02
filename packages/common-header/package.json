@@ -1,0 +1,31 @@
+{
+  "name": "@common/header",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "build": "tsc -p ."
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@babel/preset-typescript": "^7.13.0",
+    "@common-web/ts-config": "^1.0.1",
+    "babel-loader": "^8.1.0",
+    "rimraf": "^3.0.2",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.1.0"
+  },
+  "dependencies": {
+    "@common/i18n": "1.x.x",
+    "@material-ui/core": "^4.11.4",
+    "i18next": "^20.2.2",
+    "i18next-http-backend": "^1.2.2",
+    "react-i18next": "^11.8.15"
+  }
+}

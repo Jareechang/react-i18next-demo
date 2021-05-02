@@ -1,0 +1,20 @@
+{
+  "name": "@common/i18n",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "build": "tsc -p ."
+  },
+  "dependencies": {
+    "i18next": "^20.2.2",
+    "i18next-browser-languagedetector": "^6.1.0",
+    "i18next-http-backend": "^1.2.2",
+    "react-i18next": "^11.8.15"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "extends": "./node_modules/@common-web/ts-config/tsconfig.base.json",
+  "exclude": [
+    "node_modules"
+  ]
+}
+

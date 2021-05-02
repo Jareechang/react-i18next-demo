@@ -8,9 +8,10 @@ import fs from 'fs'
 import ReactDOM from 'react-dom/server'
 import React from 'react'
 import { StaticRouter } from 'react-router-dom'
-import i18n from 'client/src/i18n'
+import i18n, {
+    I18nextProvider
+} from '@common/i18n';
 import Backend from 'i18next-fs-backend'
-import { I18nextProvider } from 'react-i18next';
 import i18nextMiddleware from 'i18next-http-middleware'
 
 import App from 'client/src/App'
@@ -27,6 +28,7 @@ const appDirectory = fs.realpathSync(process.cwd())
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath)
 const appSrc = resolveApp('src')
 
+
 i18n
     .use(Backend)
     .use(i18nextMiddleware.LanguageDetector)
@@ -37,10 +39,18 @@ i18n
             'languages',
             'common',
             'home',
-            'news'
+            'news',
+            'header:translations'
         ],
         backend: {
-            loadPath: `${appSrc}/locales/{{lng}}/{{ns}}.json`,
+            loadPath: (lng, ns) => {
+                if (ns.match(/header:/)) {
+                    const headerPkgSrc = resolveApp('../../node_modules/@common/header/src')
+                    const resolvedNs : string = ns.split(':')[1];
+                    return `${headerPkgSrc}/locales/${lng}/${resolvedNs}.json`
+                }
+                return `${appSrc}/locales/{{lng}}/{{ns}}.json`
+            },
             addPath: `${appSrc}/locales/{{lng}}/{{ns}}.missing.json`
         }
     })

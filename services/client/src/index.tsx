@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
-import { useSSR } from 'react-i18next';
+import { useSSR, I18nextProvider } from '@common/i18n';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import history from './history';
@@ -11,8 +11,6 @@ import './liveReload'
 import './index.css';
 
 const Base = () => {
-    // @ts-ignore
-    console.log(window.initialI18nStore);
     // @ts-ignore
     useSSR(window.initialI18nStore, window.initialLanguage);
     return (

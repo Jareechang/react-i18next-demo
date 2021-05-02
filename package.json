@@ -5,6 +5,13 @@
     "packages/*",
     "services/*"
   ],
+  "scripts": {
+    "build:common:i18n": "lerna run build --scope @common/i18n",
+    "build:common:header": "lerna run build --scope @common/header",
+    "prebuild": "yarn run clean",
+    "build": "yarn build:common:i18n && yarn build:common:header",
+    "clean": "lerna run clean --parallel"
+  },
   "devDependencies": {
     "lerna": "^3.22.1"
   }
