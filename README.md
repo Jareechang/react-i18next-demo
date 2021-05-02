@@ -95,3 +95,6 @@ Therefore, if you try to load it in your main app then try to use it in your com
 - Export the `react-i18next` imports
 
 Re-using this across the packages in the mono-repo ensures we only reference and use one version of the `i18n` and `react-i18n`.
+
+**Similiar Discussions:**
+- [react-i18n issue #788](https://github.com/i18next/react-i18next/issues/788)
