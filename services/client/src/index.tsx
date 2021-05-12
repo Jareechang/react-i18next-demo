@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
-import { useSSR, I18nextProvider } from '@common/i18n';
+import { useSSR } from '@common/i18n';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import history from './history';

@@ -1,5 +1,6 @@
 {
   "links.home": "Principal",
   "links.news": "Noticias",
-  "languages": "Idiomas"
+  "languages": "Idiomas",
+  "button.go_back": "No es lo que estas buscando ? <0>Regresa</0>"
 }

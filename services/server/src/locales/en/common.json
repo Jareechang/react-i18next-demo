@@ -1,5 +1,6 @@
 {
   "links.home": "Home",
   "links.news": "News",
-  "languages": "Languages"
+  "languages": "Languages",
+  "button.go_back": "Not what you are looking for ? <0>Go back</0>"
 }

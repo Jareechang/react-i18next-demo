@@ -3,7 +3,8 @@ import {
     Box,
     Typography
 } from '@material-ui/core'
-import { useTranslation } from '@common/i18n';
+import { Link } from 'react-router-dom';
+import { useTranslation, Trans } from '@common/i18n';
 
 interface NewsProps {}
 
@@ -19,6 +20,13 @@ const News : React.FC<NewsProps> = () => {
                     {t('page.news.description')}
                 </Typography>
             </Box>
+            <Trans
+                ns="common"
+                i18nKey="button.go_back"
+                components={[
+                    <Link to="/"></Link>
+                ]}
+            />
         </div>
     );
 };

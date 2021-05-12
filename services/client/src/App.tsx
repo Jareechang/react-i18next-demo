@@ -1,5 +1,9 @@
-import React, {useState} from 'react'
+import React, {
+    useEffect,
+    useState
+} from 'react'
 
+import qs from 'qs';
 import {
     Box,
     List,
@@ -34,11 +38,19 @@ const App : React.FC<HomeProps> = () => {
         const newLang : string = e.target.value as string
         setLang(newLang)
         history.push({
-            pathname: '/',
+            pathname: history.location.pathname,
             search: `?lng=${newLang}`
         })
         i18n.changeLanguage(newLang)
     }
+
+    useEffect(() => {
+        const search : string = history.location.search
+        const query = qs.parse(search?.replace('?', '') ?? '')
+        if (query?.lng) {
+            setLang((query.lng as string))
+        }
+    }, [])
 
     return (
         <Box mx={4} my={12}>
