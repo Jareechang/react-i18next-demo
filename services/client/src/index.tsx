@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
 import { useSSR } from '@common/i18n';
+import { ThemeProvider } from '@material-ui/core/styles';
+
+import theme from './theme';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import history from './history';
@@ -13,10 +16,18 @@ import './index.css';
 const Base = () => {
     // @ts-ignore
     useSSR(window.initialI18nStore, window.initialLanguage);
+    React.useEffect(() => {
+        const jssStyles = document.querySelector('#jss-server-side');
+        if (jssStyles) {
+            jssStyles?.parentElement?.removeChild(jssStyles);
+        }
+    }, []);
     return (
         <React.Suspense fallback="loading...">
             <Router history={history}>
-                <App />
+                <ThemeProvider theme={theme}>
+                    <App />
+                </ThemeProvider>
             </Router>
         </React.Suspense>
     );

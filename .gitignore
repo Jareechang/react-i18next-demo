@@ -3,3 +3,8 @@
 *.swp
 dist/
 node_modules
+infra/setup-env.sh
+terraform.tfstate
+terraform.tfstate.backup
+.terraform
+*.zip
